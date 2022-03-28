@@ -10,9 +10,16 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node: [16]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Test
+        run: echo ${{ matrix.node }}
 
       - name: Check Node Version
         id: check-node-version
