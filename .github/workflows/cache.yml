@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_VERSION: 16.14.2
-      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
@@ -24,6 +23,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: npm run build
