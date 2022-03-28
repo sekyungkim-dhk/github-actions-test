@@ -9,10 +9,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [16]
+    env:
+      NODE_VERSION: 16.14.2
 
     steps:
       - name: Checkout
